@@ -5,9 +5,31 @@ body{
 }
 
 .texto{
-  color: whitesmoke;
+  color: darkblue;
   font-size: 4rem;
 }
 .alert{
-  color: whitesmoke;
+  color: darkblue;
+}
+
+.box{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  flex-direction: column;
+}
+.texto1{
+  color: aliceblue;
+  font-size: 4rem;
+}
+.caja{
+  background-color: aliceblue;
+  border-radius: 12px;
+  width: 50%;
+}
+
+h3{
+  color: darkblue;
+  font-size: 3rem;
 }

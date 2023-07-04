@@ -34,6 +34,7 @@ export const AuthProvider = ({ children }) => {
 
   const checkAuth = async () => {
     const isToken = await getAccessToken();
+
     if (isToken) {
       setIsAuthenticated(true);
       setAccessToken(isToken);

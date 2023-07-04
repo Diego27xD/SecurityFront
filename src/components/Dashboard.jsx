@@ -7,10 +7,12 @@ import { Navigate, useNavigate } from "react-router-dom";
 
 function Dashboard() {
   const [people, setPeople] = useState([]);
+  const [error, setError] = useState(false);
 
   const auth = useAuth();
   const navigate = useNavigate();
 
+  console.log(auth.isAuthenticated);
   if (!auth.isAuthenticated) {
     return <Navigate to={"/"} />;
   }
@@ -23,15 +25,24 @@ function Dashboard() {
     try {
       const token = auth.getAccessToken();
       const response = await getPeople(token);
+      if (!response) {
+        setError(true);
+      }
       setPeople(response.data);
+      setError(false);
     } catch (error) {
       console.log("Error fetching people:", error);
-      navigate("/unauthorized");
+      setError(true);
     }
   };
   return (
-    <div>
+    <div className={error && "box"}>
       <PersonList people={people} />
+      {error && (
+        <div className="caja">
+          <h3>Token invalido</h3>
+        </div>
+      )}
     </div>
   );
 }

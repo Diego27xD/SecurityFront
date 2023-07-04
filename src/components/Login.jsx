@@ -12,9 +12,9 @@ function Login() {
 
   const auth = useAuth();
 
-  if (auth.isAuthenticated) {
+  /* if (auth.isAuthenticated) {
     return <Navigate to={"/dashboard"} />;
-  }
+  } */
 
   const handleLogin = async () => {
     try {
