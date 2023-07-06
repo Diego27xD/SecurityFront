@@ -36,7 +36,7 @@ function Dashboard() {
     }
   };
   return (
-    <div className={error && "box"}>
+    <div className={error ? "box" : ""}>
       <PersonList people={people} />
       {error && (
         <div className="caja">
